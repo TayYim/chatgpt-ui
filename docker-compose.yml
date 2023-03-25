@@ -6,7 +6,7 @@ services:
       - SERVER_DOMAIN=http://backend-web-server
       - NUXT_PUBLIC_APP_NAME='Our ChatGPT'
       - NUXT_PUBLIC_TYPEWRITER=true
-      - NUXT_PUBLIC_TYPEWRITER_DELAY=100
+      - NUXT_PUBLIC_TYPEWRITER_DELAY=50
     depends_on:
       - backend-web-server
     ports:
@@ -17,7 +17,7 @@ services:
   backend-wsgi-server:
     image: wongsaang/chatgpt-ui-wsgi-server:latest
     environment:
-      - APP_DOMAIN=${APP_DOMAIN:-localhost:9000}
+      - APP_DOMAIN=45.152.67.237:9000
       #      - DB_URL=postgres://postgres:postgrespw@localhost:49153/chatgpt # If this parameter is not set, the built-in Sqlite will be used by default. It should be noted that if you do not connect to an external database, the data will be lost after the container is destroyed.
       - OPENAI_API_PROXY=https://openai.lapalacayim.com/v1 # https://api.openai.com/v1 的代理地址
       - DJANGO_SUPERUSER_USERNAME=admin # default superuser name
